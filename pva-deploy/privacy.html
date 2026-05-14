@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>PILLAR by PVA — Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Privacy policy for PILLAR by PVA. What data we collect, why, and your rights." />
+<style>
+  :root {
+    --bg: #0A0E1A;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.10);
+    --text: rgba(255,255,255,0.93);
+    --mid: rgba(255,255,255,0.65);
+    --dim: rgba(255,255,255,0.45);
+    --accent: #94B8DB;
+    --green: #22C55E;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
+  header { margin-bottom: 36px; }
+  header .brand { font-size: 12px; letter-spacing: 0.32em; color: var(--dim); text-transform: uppercase; }
+  h1 { font-size: 32px; letter-spacing: -0.02em; margin: 8px 0 8px; font-weight: 800; }
+  .updated { color: var(--dim); font-size: 12px; margin-bottom: 24px; }
+  h2 { font-size: 16px; letter-spacing: -0.01em; margin: 32px 0 8px; font-weight: 700; color: var(--accent); }
+  p { font-size: 14px; color: var(--mid); margin: 0 0 12px; }
+  strong { color: var(--text); }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(148,184,219,0.3); }
+  a:hover { border-bottom-color: var(--accent); }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 18px; font-size: 12px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  td { color: var(--mid); vertical-align: top; }
+  ul { padding-left: 20px; color: var(--mid); font-size: 14px; }
+  li { margin-bottom: 4px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 14px 18px; margin: 18px 0; font-size: 13px; color: var(--mid);
+  }
+  .card.delete { border-color: rgba(34,197,94,0.30); }
+  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--dim); font-size: 11px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand">PILLAR by PVA</div>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: <em>[fill in before publishing]</em></div>
+  </header>
+
+  <p>PILLAR by PVA (“PILLAR”, “we”, “us”) is a personal-discipline application owned by <strong>Emmanuel Anie-Akwetey</strong> (the “Operator”, contact: <a href="mailto:eanieakwetey.eaa@gmail.com">eanieakwetey.eaa@gmail.com</a>). This policy explains what data PILLAR collects, why, and how you can exercise your rights. It applies to the PILLAR mobile app on iOS and Android, and the PILLAR PWA at <a href="https://pillarbypva.app">pillarbypva.app</a>.</p>
+
+  <h2>1. Data we collect</h2>
+  <table>
+    <thead><tr><th>Category</th><th>What</th><th>Why</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>Account</td><td>Email, display name</td><td>Sign-in, personalisation</td><td>Firebase Authentication</td></tr>
+      <tr><td>Profile</td><td>Name, cue time, notification preference, theme</td><td>Personalisation</td><td>Firestore <code>users/{uid}</code></td></tr>
+      <tr><td>Discipline</td><td>Tasks, XP, streaks, history</td><td>Core app function</td><td>Firestore + on-device</td></tr>
+      <tr><td>Personal entries</td><td>Journal, notes, verses, testimonies</td><td>Personal spiritual material</td><td>Firestore (encrypted)</td></tr>
+      <tr><td>Crash logs</td><td>Stack trace, device model, OS, app version</td><td>Bug fixes</td><td>Sentry / Crashlytics</td></tr>
+      <tr><td>Analytics</td><td>Anonymous funnel events</td><td>Improve onboarding</td><td>Firebase Analytics</td></tr>
+    </tbody>
+  </table>
+  <p><strong>We do not collect:</strong> location, contacts, photos, advertising IDs, or anything for sale to third parties.</p>
+
+  <h2>2. Legal basis (UK / EU GDPR)</h2>
+  <ul>
+    <li><strong>Contract</strong> (Article 6(1)(b)) — to provide the service you signed up for</li>
+    <li><strong>Legitimate interest</strong> (Article 6(1)(f)) — to keep the app working and improve it</li>
+    <li><strong>Consent</strong> (Article 6(1)(a)) — for push notifications, withdrawable in Settings</li>
+  </ul>
+
+  <h2>3. Where your data is stored</h2>
+  <p>PILLAR uses Google Firebase (Authentication, Firestore, Crashlytics, Analytics). Firebase is operated by Google LLC in the United States, with regional data centres. Project ID: <code>pvaapp-164bf</code>. Google's data processing complies with UK/EU GDPR and the EU-US Data Privacy Framework. See <a href="https://firebase.google.com/support/privacy">Firebase Privacy &amp; Security</a>.</p>
+  <p>For UK / EEA / Swiss residents we rely on Google's Standard Contractual Clauses for the international transfer.</p>
+
+  <h2>4. Crash reporting</h2>
+  <p>Crash reports contain only the error, device model, OS, and app version — never your name, email, or personal content. Opt out: Settings → Privacy → Crash reporting.</p>
+
+  <h2>5. Your rights</h2>
+  <p>You may request access, rectification, erasure, portability, restriction, or object to processing. Email <a href="mailto:eanieakwetey.eaa@gmail.com">eanieakwetey.eaa@gmail.com</a>. We respond within 30 days.</p>
+
+  <h2>6. Account deletion</h2>
+  <div class="card delete">
+    Open the app → <strong>Settings → Danger Zone → Delete my account</strong>. This removes your Firestore document, on-device storage, and Firebase Auth record. Deletion is irreversible.
+  </div>
+
+  <h2>7. Children</h2>
+  <p>PILLAR is not directed at children under 13. If you believe a child has registered, email us and we will delete the account.</p>
+
+  <h2>8. Security</h2>
+  <ul>
+    <li>All traffic over TLS / HTTPS.</li>
+    <li>Firebase data at rest encrypted with AES-256.</li>
+    <li>Auth tokens on device in iOS Keychain / Android EncryptedSharedPreferences.</li>
+    <li>Firestore Security Rules prevent cross-user access.</li>
+  </ul>
+
+  <h2>9. Changes</h2>
+  <p>We will update this page if practices change. Material changes are notified in-app before they take effect.</p>
+
+  <h2>10. Contact</h2>
+  <p>Operator: <strong>Emmanuel Anie-Akwetey</strong><br>
+     Email: <a href="mailto:eanieakwetey.eaa@gmail.com">eanieakwetey.eaa@gmail.com</a><br>
+     Postal: <em>[fill in before publishing]</em></p>
+  <p>UK residents may also contact the <a href="https://ico.org.uk">Information Commissioner's Office</a>.</p>
+
+  <footer>
+    PILLAR by PVA · <a href="https://pillarbypva.app">pillarbypva.app</a>
+  </footer>
+</main>
+</body>
+</html>

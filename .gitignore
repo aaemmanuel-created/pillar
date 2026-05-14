@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups / scratch
+*.bak
+*.orig
+TO_DELETE_*
+
+# Logs
+*.log
+
+# Local environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Claude Code
+.claude/
+
+# Per-machine Claude permission overrides — never commit
+.claude/settings.local.json
+
+# Node
+node_modules/
+
+# The Expo / React Native counterpart — lives in its own local git repo
+# and will get its own GitHub home (e.g. aaemmanuel-created/pillar-native)
+# as a separate task. Excluded from this repo so we don't accidentally
+# nest a sub-repo.
+pillar-app/
+
+# Archived earlier versions / scratch directories
+_archive/
+DELETE_REVIEW_*/

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PILLAR logo — variants</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #050810; color: #E5E7EB; font-family: "JetBrains Mono", "Trebuchet MS", system-ui, sans-serif; }
+  body { padding: 56px 40px 80px; }
+  h1 { font-size: 14px; font-weight: 700; letter-spacing: 0.24em; opacity: 0.5; text-transform: uppercase; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .variant {
+    background: #0A0E1A;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .variant-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .variant-name {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .variant-desc {
+    font-size: 11px;
+    opacity: 0.55;
+    text-align: center;
+    line-height: 1.5;
+    min-height: 48px;
+  }
+  .sizes {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .size-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .size-label { font-size: 8px; letter-spacing: 0.14em; opacity: 0.4; }
+  .icon-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .icon-preview-label { font-size: 8px; letter-spacing: 0.14em; opacity: 0.4; margin-top: 6px; text-transform: uppercase; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>PILLAR logo — compare 4 directions</h1>
+
+<div class="grid">
+
+  <!-- =================== A: BASELINE =================== -->
+  <div class="variant">
+    <div class="variant-tag">Option A</div>
+    <div class="variant-name">Baseline</div>
+    <div class="variant-desc">Current mark — 4 equal arcs,<br/>gaps at N / E / S / W.</div>
+    <div class="sizes">
+      <div class="size-col">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32</div>
+      </div>
+      <div class="size-col">
+        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">64</div>
+      </div>
+      <div class="size-col">
+        <svg width="112" height="112" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">112</div>
+      </div>
+    </div>
+    <div class="icon-preview" style="background:#0A0E1A; border:1px solid rgba(255,255,255,0.1);">
+      <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+        <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-preview-label">homescreen tile</div>
+  </div>
+
+  <!-- =================== B: ROTATED 45° =================== -->
+  <div class="variant">
+    <div class="variant-tag">Option B</div>
+    <div class="variant-name">Rotated 45°</div>
+    <div class="variant-desc">Gaps at diagonals.<br/>Reads as orbit / motion.</div>
+    <div class="sizes">
+      <div class="size-col">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+          <g transform="rotate(45 50 50)">
+            <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="size-label">32</div>
+      </div>
+      <div class="size-col">
+        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
+          <g transform="rotate(45 50 50)">
+            <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="size-label">64</div>
+      </div>
+      <div class="size-col">
+        <svg width="112" height="112" viewBox="0 0 100 100" fill="none">
+          <g transform="rotate(45 50 50)">
+            <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div class="size-label">112</div>
+      </div>
+    </div>
+    <div class="icon-preview" style="background:#0A0E1A; border:1px solid rgba(255,255,255,0.1);">
+      <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+        <g transform="rotate(45 50 50)">
+          <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <div class="icon-preview-label">homescreen tile</div>
+  </div>
+
+  <!-- =================== C: CROSS AT CENTER =================== -->
+  <div class="variant">
+    <div class="variant-tag">Option C</div>
+    <div class="variant-name">Faith Cross</div>
+    <div class="variant-desc">Baseline + quiet center cross.<br/>Mission-aligned, subtle.</div>
+    <div class="sizes">
+      <div class="size-col">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <line x1="50" y1="40" x2="50" y2="60" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+          <line x1="43" y1="46" x2="57" y2="46" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32</div>
+      </div>
+      <div class="size-col">
+        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <line x1="50" y1="40" x2="50" y2="60" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+          <line x1="43" y1="46" x2="57" y2="46" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">64</div>
+      </div>
+      <div class="size-col">
+        <svg width="112" height="112" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#E5E7EB" stroke-width="6" stroke-linecap="round"/>
+          <line x1="50" y1="40" x2="50" y2="60" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+          <line x1="43" y1="46" x2="57" y2="46" stroke="#E5E7EB" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">112</div>
+      </div>
+    </div>
+    <div class="icon-preview" style="background:#0A0E1A; border:1px solid rgba(255,255,255,0.1);">
+      <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+        <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="#F8FAFC" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="40" x2="50" y2="60" stroke="#F8FAFC" stroke-width="5" stroke-linecap="round"/>
+        <line x1="42" y1="46" x2="58" y2="46" stroke="#F8FAFC" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-preview-label">homescreen tile</div>
+  </div>
+
+  <!-- =================== D: COLORED PILLARS =================== -->
+  <div class="variant">
+    <div class="variant-tag">Option D</div>
+    <div class="variant-name">Colored Pillars</div>
+    <div class="variant-desc">4 category colors —<br/>Person / People / Process / Product.</div>
+    <div class="sizes">
+      <div class="size-col">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#7C3AED" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#16A34A" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32</div>
+      </div>
+      <div class="size-col">
+        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#7C3AED" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#16A34A" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">64</div>
+      </div>
+      <div class="size-col">
+        <svg width="112" height="112" viewBox="0 0 100 100" fill="none">
+          <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="#7C3AED" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="#16A34A" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">112</div>
+      </div>
+    </div>
+    <div class="icon-preview" style="background:#0A0E1A; border:1px solid rgba(255,255,255,0.1);">
+      <svg width="56" height="56" viewBox="0 0 100 100" fill="none">
+        <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="#DC2626" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="#7C3AED" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="#16A34A" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="#3B82F6" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-preview-label">homescreen tile</div>
+  </div>
+
+</div>
+
+</body>
+</html>

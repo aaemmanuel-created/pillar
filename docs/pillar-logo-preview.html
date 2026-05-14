@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PILLAR logo preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Trebuchet MS", system-ui, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #1a1a1a;
+  }
+  .panel {
+    padding: 56px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .panel.dark  { background: #050810; color: #E5E7EB; }
+  .panel.light { background: #F0EFEC; color: #1A1A1A; }
+  .panel.tile  {
+    background: radial-gradient(ellipse at 30% 20%, #2a2b3a 0%, #0a0a12 70%);
+    color: #E5E7EB;
+  }
+  .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+  .logo-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 28px;
+  }
+  .logo-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .size-label { font-size: 9px; letter-spacing: 0.14em; opacity: 0.5; }
+  .brand-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .brand-title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+  .brand-sub {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    opacity: 0.55;
+  }
+  .tile-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .homescreen-tile {
+    width: 180px; height: 180px;
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 6px 12px rgba(0,0,0,0.4);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .homescreen-tile.sm {
+    width: 96px; height: 96px;
+    border-radius: 22px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.5);
+  }
+  .homescreen-tile.xs {
+    width: 60px; height: 60px;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+  }
+  @media (max-width: 900px) {
+    body { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="panel dark">
+  <div class="label">Dark theme · in-app</div>
+
+  <div class="logo-group">
+    <div class="logo-item">
+      <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="d32" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CCCCCC"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#d32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#d32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#d32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#d32)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">32px</div>
+    </div>
+    <div class="logo-item">
+      <svg width="72" height="72" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="d72" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CCCCCC"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#d72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#d72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#d72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#d72)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">72px (in-app)</div>
+    </div>
+    <div class="logo-item">
+      <svg width="144" height="144" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="d144" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CCCCCC"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#d144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#d144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#d144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#d144)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">144px</div>
+    </div>
+  </div>
+
+  <div class="brand-stack">
+    <svg width="88" height="88" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="ds" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CCCCCC"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="24" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+      <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#ds)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#ds)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#ds)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#ds)" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <div class="brand-title">PILLAR</div>
+    <div class="brand-sub">by PVA</div>
+  </div>
+</div>
+
+<div class="panel light">
+  <div class="label">Light theme · in-app</div>
+
+  <div class="logo-group">
+    <div class="logo-item">
+      <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="l32" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1A1A1A"/><stop offset="1" stop-color="#555555"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#1A1A1A" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#l32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#l32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#l32)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#l32)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">32px</div>
+    </div>
+    <div class="logo-item">
+      <svg width="72" height="72" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="l72" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1A1A1A"/><stop offset="1" stop-color="#555555"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#1A1A1A" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#l72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#l72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#l72)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#l72)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">72px (in-app)</div>
+    </div>
+    <div class="logo-item">
+      <svg width="144" height="144" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="l144" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1A1A1A"/><stop offset="1" stop-color="#555555"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#1A1A1A" stroke-opacity="0.1" stroke-width="1"/>
+        <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#l144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#l144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#l144)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#l144)" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="size-label">144px</div>
+    </div>
+  </div>
+
+  <div class="brand-stack">
+    <svg width="88" height="88" viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="ls" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#1A1A1A"/><stop offset="1" stop-color="#555555"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="24" fill="none" stroke="#1A1A1A" stroke-opacity="0.1" stroke-width="1"/>
+      <path d="M 89.51 56.26 A 40 40 0 0 1 56.26 89.51" stroke="url(#ls)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 43.74 89.51 A 40 40 0 0 1 10.49 56.26" stroke="url(#ls)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 10.49 43.74 A 40 40 0 0 1 43.74 10.49" stroke="url(#ls)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 56.26 10.49 A 40 40 0 0 1 89.51 43.74" stroke="url(#ls)" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <div class="brand-title">PILLAR</div>
+    <div class="brand-sub">by PVA</div>
+  </div>
+</div>
+
+<div class="panel tile">
+  <div class="label">Homescreen tile · with depth</div>
+
+  <div class="tile-stack">
+    <div class="homescreen-tile">
+      <svg width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="tileBg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0"   stop-color="#1C2236"/>
+            <stop offset="0.5" stop-color="#0A0E1A"/>
+            <stop offset="1"   stop-color="#03050B"/>
+          </linearGradient>
+          <linearGradient id="tileArc" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CCCCCC"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#tileBg)"/>
+        <circle cx="50" cy="50" r="19.2" fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="1.1"/>
+        <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="label">180 · 96 · 60</div>
+
+    <div style="display:flex; align-items:flex-end; gap:24px;">
+      <div class="homescreen-tile sm">
+        <svg width="96" height="96" viewBox="0 0 100 100" fill="none">
+          <rect width="100" height="100" fill="url(#tileBg)"/>
+          <circle cx="50" cy="50" r="19.2" fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="1.1"/>
+          <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="homescreen-tile xs">
+        <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+          <rect width="100" height="100" fill="url(#tileBg)"/>
+          <circle cx="50" cy="50" r="19.2" fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="1.1"/>
+          <path d="M 81.61 55.01 A 32 32 0 0 1 55.01 81.61" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 44.99 81.61 A 32 32 0 0 1 18.39 55.01" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 18.39 44.99 A 32 32 0 0 1 44.99 18.39" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 55.01 18.39 A 32 32 0 0 1 81.61 44.99" stroke="url(#tileArc)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
