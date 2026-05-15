@@ -10,6 +10,8 @@ Before doing anything, also read:
 - **`../_workflow/DISPATCH-PROMPTS/`** — drop-in prompts for bugfix, feature, OTA push, dependency bump, store-readiness, brand pass, cleanup, inbox drain, and parity check.
 - **`../_workflow/INBOX.md`** — one-line dispatch requests Emmanuel drops in from his phone.
 
+**Phone continuation — `/remote-control`.** Run Claude Code's `/remote-control` once at session start to make this session resumable from the Claude mobile app's Code tab. Combined with the per-app stable preview URL, that's the full "see the change on my phone, give the next instruction from my phone" loop — no extra infra needed. Full how-to: [`../_workflow/STABLE-PREVIEW-SETUP.md`](../_workflow/STABLE-PREVIEW-SETUP.md) §6.1 — don't duplicate it here.
+
 PILLAR has **three surfaces** that must stay at feature parity: web (`pva-deploy/` — single-file PWA on `pillarbypva.app`), iOS and Android (`pillar-app/` — Expo wrapper). End every change-the-app session with a parity status line per `PVA-WORKFLOW.md` §1.
 
 ## Project Overview
