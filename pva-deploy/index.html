@@ -18,14 +18,15 @@ Sentry.onLoad(function () {
     replaysSessionSampleRate: 0.0,
     replaysOnErrorSampleRate: 0.0
   });
+  // ?sentryTest=1 — fires a test event 5s after init so the preview URL can validate the Sentry wiring.
+  // captureException, not throw: it's the canonical SDK test pattern and exercises init + transport + DSN
+  // + project routing directly, without depending on the SDK's GlobalHandlers integration binding window.onerror.
+  if (typeof location !== 'undefined' && /(?:^|[?&])sentryTest=1(?:&|$)/.test(location.search)) {
+    setTimeout(function () {
+      Sentry.captureException(new Error('Sentry test event from ?sentryTest=1 — wiring check, ignore.'));
+    }, 5000);
+  }
 });
-// ?sentryTest=1 — fires a test error 5s after load so the preview URL can validate the Sentry wiring.
-// Lives here (not inside the React tree) so it runs even if PPPPApp fails to mount.
-if (typeof location !== 'undefined' && /(?:^|[?&])sentryTest=1(?:&|$)/.test(location.search)) {
-  setTimeout(function () {
-    throw new Error('Sentry test event from ?sentryTest=1 — wiring check, ignore.');
-  }, 5000);
-}
 </script>
 </head><body><div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
