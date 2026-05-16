@@ -8,11 +8,23 @@
 # Prerequisites in the PILLAR repo:
 #   1. A previews repo at <owner>/pillar-previews exists with GH Pages enabled
 #      (Source: gh-pages branch, root).
-#   2. Secret:
-#        PREVIEW_DEPLOY_TOKEN — fine-scoped PAT with `contents:write` on
-#                               the previews repo only.
+#   2. Secrets:
+#        PREVIEW_DEPLOY_TOKEN  — fine-scoped PAT with `contents:write` on
+#                                the previews repo only.
+#        PREVIEW_STABLE_SLUG   — 8-char random token (e.g. `openssl rand -hex 4`).
+#                                Defines the bookmarkable stable preview URL at
+#                                /preview/latest-<token>/. Set once per app,
+#                                never rotate. See STABLE-PREVIEW-SETUP.md.
 #
 # Drop at .github/workflows/preview-deploy.yml in the PILLAR repo.
+#
+# This workflow does TWO deploys per push:
+#   1. Per-branch URL — /preview/<branch-slug>/   (existing behaviour)
+#   2. Stable URL     — /preview/latest-<token>/  (overwritten on every push;
+#                       this is the one Emmanuel bookmarks on his phone)
+# Each build namespaces its service-worker cache key independently, so the
+# two previews don't collide with each other or with the production install
+# at pillarbypva.app. A small banner is injected into the stable build.
 
 name: preview-deploy
 
@@ -54,32 +66,78 @@ jobs:
           SLUG="$(echo "$BRANCH" | tr '/_' '--' | tr -cd 'a-zA-Z0-9-' | tr 'A-Z' 'a-z')"
           echo "value=$SLUG" >> "$GITHUB_OUTPUT"
 
-      - name: Rewrite paths and namespace service-worker cache
+      - name: Stable slug check
+        id: stable
+        env:
+          STABLE: ${{ secrets.PREVIEW_STABLE_SLUG }}
+        run: |
+          if [ -z "$STABLE" ]; then
+            echo "PREVIEW_STABLE_SLUG secret not set — skipping stable-URL deploy."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "dest=preview/latest-$STABLE" >> "$GITHUB_OUTPUT"
+            echo "slug=latest-$STABLE" >> "$GITHUB_OUTPUT"
+            echo "url=https://${{ env.PREVIEWS_PAGES_HOST }}/preview/latest-$STABLE/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Stage per-branch preview folder
         env:
           SLUG: ${{ steps.slug.outputs.value }}
         run: |
-          # Namespace the service-worker cache so this preview doesn't collide
-          # with the production install installed on your phone at pillarbypva.app.
-          sed -i "s/pva-cache-v/preview-${SLUG}-pva-cache-v/g" pva-deploy/sw.js
-          # Drop the CNAME from the previews build so it doesn't try to claim
-          # the apex domain.
-          rm -f pva-deploy/CNAME
+          mkdir -p _preview-branch
+          cp -r pva-deploy/* _preview-branch/
+          # Namespace SW cache so this preview can't collide with prod install
+          # on your phone at pillarbypva.app or with the stable preview.
+          sed -i "s/pva-cache-v/preview-${SLUG}-pva-cache-v/g" _preview-branch/sw.js
+          rm -f _preview-branch/CNAME
 
-      - name: Stage preview folder
+      - name: Stage stable preview folder
+        if: steps.stable.outputs.skip == 'false'
+        env:
+          STABLE_SLUG: ${{ steps.stable.outputs.slug }}
+          BRANCH: ${{ github.ref_name }}
+          SHORTSHA: ${{ github.sha }}
         run: |
-          mkdir -p _preview
-          cp -r pva-deploy/* _preview/
+          mkdir -p _preview-stable
+          cp -r pva-deploy/* _preview-stable/
+          sed -i "s/pva-cache-v/preview-${STABLE_SLUG}-pva-cache-v/g" _preview-stable/sw.js
+          rm -f _preview-stable/CNAME
+          # Inject preview banner so it's obvious which iteration is loaded.
+          SHORT="${SHORTSHA:0:7}"
+          STAMP="$(date -u +'%Y-%m-%d %H:%MZ')"
+          BANNER="<div id=\"pva-preview-banner\" style=\"position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#0a0a0a;color:#fff;font:11px/1.4 -apple-system,system-ui,sans-serif;padding:5px 10px;text-align:center;opacity:0.88;pointer-events:none\">PREVIEW &middot; ${BRANCH} &middot; ${SHORT} &middot; ${STAMP}</div>"
+          python3 - "$BANNER" <<'PY'
+          import re, sys, pathlib
+          banner = sys.argv[1]
+          p = pathlib.Path("_preview-stable/index.html")
+          html = p.read_text()
+          html = re.sub(r"(<body[^>]*>)", r"\1" + banner, html, count=1, flags=re.IGNORECASE)
+          p.write_text(html)
+          PY
 
-      - name: Deploy to previews repo
+      - name: Deploy to previews repo (per-branch URL)
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
           external_repository: ${{ env.PREVIEWS_REPO_OWNER }}/${{ env.PREVIEWS_REPO_NAME }}
           publish_branch: gh-pages
-          publish_dir: ./_preview
+          publish_dir: ./_preview-branch
           destination_dir: preview/${{ steps.slug.outputs.value }}
           keep_files: true
           commit_message: "preview: ${{ github.ref_name }} @ ${{ github.sha }}"
+
+      - name: Deploy to previews repo (stable URL)
+        if: steps.stable.outputs.skip == 'false'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          external_repository: ${{ env.PREVIEWS_REPO_OWNER }}/${{ env.PREVIEWS_REPO_NAME }}
+          publish_branch: gh-pages
+          publish_dir: ./_preview-stable
+          destination_dir: ${{ steps.stable.outputs.dest }}
+          keep_files: true
+          commit_message: "preview-latest: ${{ github.ref_name }} @ ${{ github.sha }}"
 
       - name: Find associated PR
         id: pr
@@ -105,10 +163,11 @@ jobs:
             🔍 **Preview deploy ready**
 
             Branch: `${{ github.ref_name }}`
-            URL: https://${{ env.PREVIEWS_PAGES_HOST }}/preview/${{ steps.slug.outputs.value }}/
+            Per-branch URL: https://${{ env.PREVIEWS_PAGES_HOST }}/preview/${{ steps.slug.outputs.value }}/
+            Stable URL (your phone bookmark): ${{ steps.stable.outputs.url || '— set PREVIEW_STABLE_SLUG secret to enable —' }}
             Commit: ${{ github.sha }}
 
-            Service-worker cache key is namespaced (`preview-${{ steps.slug.outputs.value }}-pva-cache-v…`) so this preview does not collide with the production install on your phone. Hard-reload to bust any stale cache.
+            Service-worker cache keys are namespaced per preview (`preview-${{ steps.slug.outputs.value }}-pva-cache-v…` and `preview-latest-…-pva-cache-v…`) so neither preview collides with the production install on your phone. Hard-reload to bust any stale cache.
 
             Production at `pillarbypva.app` is untouched.
 
