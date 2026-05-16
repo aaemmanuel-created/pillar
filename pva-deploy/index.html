@@ -10,7 +10,9 @@
 <title>PILLAR</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');*{margin:0;padding:0;box-sizing:border-box;font-family:'JetBrains Mono','Fira Code',monospace}html,body,#root{width:100%;min-height:100vh;-webkit-font-smoothing:antialiased}body{overscroll-behavior:none}input,textarea,button,select{font-family:inherit}</style>
 <!-- Sentry web — Loader Script (auto-stubs Sentry global until full SDK lazy-loads). Public DSN. -->
-<script src="https://js.sentry-cdn.com/2b8f99ba82b2391e280a2f948aea1e6a.min.js" crossorigin="anonymous"></script>
+<!-- js-de.sentry-cdn.com (NOT js.sentry-cdn.com) — pillar project lives in Sentry's German region; -->
+<!-- the default-region loader URL responds with a noop stub for EU-region keys. -->
+<script src="https://js-de.sentry-cdn.com/2b8f99ba82b2391e280a2f948aea1e6a.min.js" crossorigin="anonymous"></script>
 <script>
 Sentry.onLoad(function () {
   Sentry.init({
@@ -18,15 +20,17 @@ Sentry.onLoad(function () {
     replaysSessionSampleRate: 0.0,
     replaysOnErrorSampleRate: 0.0
   });
-  // ?sentryTest=1 — fires a test event 5s after init so the preview URL can validate the Sentry wiring.
-  // captureException, not throw: it's the canonical SDK test pattern and exercises init + transport + DSN
-  // + project routing directly, without depending on the SDK's GlobalHandlers integration binding window.onerror.
-  if (typeof location !== 'undefined' && /(?:^|[?&])sentryTest=1(?:&|$)/.test(location.search)) {
+});
+// ?sentryTest=1 — fires a test event 5s after the SDK loads so the preview URL can validate
+// the Sentry wiring end-to-end (init + transport + DSN + project routing). captureException,
+// not throw: the canonical SDK test pattern, doesn't depend on GlobalHandlers binding window.onerror.
+if (typeof location !== 'undefined' && /(?:^|[?&])sentryTest=1(?:&|$)/.test(location.search)) {
+  Sentry.onLoad(function () {
     setTimeout(function () {
       Sentry.captureException(new Error('Sentry test event from ?sentryTest=1 — wiring check, ignore.'));
     }, 5000);
-  }
-});
+  });
+}
 </script>
 </head><body><div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
