@@ -33,7 +33,7 @@ jobs:
     with:
       app_name: pillar                                     # renew | pillar | burden
       build_dir: pva-deploy                              # "." for renew (flat), "burden-app" for burden monorepo, "pva-deploy" for pillar
-      dist_dir: dist                                      # vite default; PILLAR static = "." (and set static_only: true)
+      dist_dir: "."                                      # vite default; PILLAR static = "." (and set static_only: true)
       static_only: true                                 # uncomment for PILLAR (no-build)
       node_version: '22'
       previews_repo: aaemmanuel-created/pillar-previews
